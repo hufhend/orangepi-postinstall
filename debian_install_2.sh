@@ -3,7 +3,7 @@
 #   begin     : Fri 25 Sep 2020.
 #   copyright : (c) 2021 Václav Dvorský
 #   email     : vaclav.dvorsky@hotmail.com
-#   $Id: debian_install.sh, v3.10 28/09/2021
+#   $Id: debian_install.sh, v3.12 28/09/2021
 #   ******************************************
 #
 #   --------------------------------------------------------------------
@@ -33,13 +33,13 @@ if ! [ $(id -u) = 0 ]; then
     curl -L https://github.com/hufhend/ubuntu-postinstall/raw/main/fonts.tar.gz -o fonts.tar.gz
     sudo tar xvfz fonts.tar.gz -C /usr/local/share
     # when we have Docker, more memory comes in handy
-    echo "I'm creating a 3.5G SWAP, just a minute..."
+    echo "I'm creating a 3.5G swap, just a minute..."
     sudo dd if=/dev/zero of=/swapfile bs=1024 count=3670016
     sudo chmod 600 /swapfile
     sudo mkswap /swapfile
     sudo swapon /swapfile
-    sudo echo "/swapfile swap swap defaults 0 0" >> /etc/fstab
-    swapon --show
+    echo "/swapfile swap swap defaults 0 0" | sudo tee -a /etc/fstab
+    sudo swapon --show
   exit
 fi
     #here go superuser commands
