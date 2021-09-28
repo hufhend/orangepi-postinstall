@@ -22,8 +22,9 @@ if ! [ $(id -u) = 0 ]; then
     # install Docker Compose v2
     sudo curl -L "https://github.com/docker/compose/releases/download/v2.0.0/docker-compose-linux-arm64" -o /usr/local/bin/docker-compose
     sudo chmod +x /usr/local/bin/docker-compose
-    sudo ln -s /usr/local/bin/docker-compose /usr/bin/docker-compose
-    docker-compose --version
+    mkdir -p $HOME/.docker/cli-plugins/
+    ln -s /usr/local/bin/docker-compose $HOME/.docker/cli-plugins/docker-compose
+    docker compose version
 #    sudo apt-get -f install && sudo apt-get update && sudo apt-get upgrade -y && sudo apt-get dist-upgrade -y && sudo apt-get autoremove -y
     sudo nano /etc/hostname
     # other useful programs
