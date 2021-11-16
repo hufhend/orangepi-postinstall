@@ -31,6 +31,8 @@ if ! [ $(id -u) = 0 ]; then
     sudo apt-get install -y sysstat
     sudo systemctl enable sysstat
     sudo sed -i 's/false/true/g' /etc/default/sysstat
+    sudo sed -i 's/HISTORY=7/HISTORY=3/g' /etc/sysstat/sysstat
+    sudo sed -i 's/COMPRESSAFTER=10/COMPRESSAFTER=1/g' /etc/sysstat/sysstat
     curl -L https://github.com/hufhend/ubuntu-postinstall/raw/main/fonts.tar.gz -o fonts.tar.gz
     sudo tar xvfz fonts.tar.gz -C /usr/local/share
     # when we have Docker, more memory comes in handy
