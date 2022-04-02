@@ -20,7 +20,7 @@ if ! [ $(id -u) = 0 ]; then
     docker ps -a
     systemctl is-enabled docker
     # install Docker Compose v2
-    sudo curl -L "https://github.com/docker/compose/releases/download/v2.0.0/docker-compose-linux-arm64" -o /usr/local/bin/docker-compose
+    sudo curl -L "https://github.com/docker/compose/releases/download/v2.3.4/docker-compose-linux-aarch64" -o /usr/local/bin/docker-compose
     sudo chmod +x /usr/local/bin/docker-compose
     mkdir -p $HOME/.docker/cli-plugins/
     ln -s /usr/local/bin/docker-compose $HOME/.docker/cli-plugins/docker-compose
