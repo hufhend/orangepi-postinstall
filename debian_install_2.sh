@@ -37,8 +37,8 @@ if ! [ $(id -u) = 0 ]; then
     sudo tar xvfz fonts.tar.gz -C /usr/local/share
     # when we have Docker, more memory comes in handy
     echo "I'm creating a 3.5G swap, just a minute..."
-    sudo dd if=/dev/zero of=/swapfile bs=1024 count=3670016 status=progress
     sudo touch /swapfile
+    sudo dd if=/dev/zero of=/swapfile bs=1024 count=3670016 status=progress
     sudo chmod 600 /swapfile
     sudo mkswap /swapfile
     sudo swapon /swapfile
