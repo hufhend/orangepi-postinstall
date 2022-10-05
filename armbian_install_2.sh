@@ -41,6 +41,10 @@ if ! [ $(id -u) = 0 ]; then
     sudo sed -i 's/COMPRESSAFTER=10/COMPRESSAFTER=1/g' /etc/sysstat/sysstat
     curl -L https://github.com/hufhend/ubuntu-postinstall/raw/main/fonts.tar.gz -o fonts.tar.gz
     sudo tar xvfz fonts.tar.gz -C /usr/local/share
+    # set locale
+    sudo localectl set-locale LANG=cs_CZ.UTF-8 LANGUAGE=CZ.UTF-8 LC_MESSAGES=cs_CZ.UTF-8 LC_TIME=cs_CZ.UTF-8
+    sudo timedatectl set-timezone Europe/Prague
+    sudo locale-gen
     # when we have Docker, more memory comes in handy
     echo "I'm creating a 3.5G swap, just a minute..."
     sudo touch /swapfile
