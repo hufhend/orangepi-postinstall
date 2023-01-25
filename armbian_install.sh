@@ -18,7 +18,7 @@ if ! [ $(id -u) = 0 ]; then
     # complete update
     sudo apt -f install -y && sudo apt update && sudo apt upgrade -y && sudo apt dist-upgrade -y && sudo apt autoremove -y
     # set locale
-    echo Setting locales (this might take a while)...
+    echo "Setting locales (this might take a while)..."
     sudo localectl set-locale LANG=cs_CZ.UTF-8 LANGUAGE=CZ.UTF-8 LC_MESSAGES=cs_CZ.UTF-8 LC_TIME=cs_CZ.UTF-8
     sudo timedatectl set-timezone Europe/Prague
     sudo locale-gen
