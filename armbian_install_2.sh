@@ -44,7 +44,7 @@ if ! [ $(id -u) = 0 ]; then
     # when we have Docker, more memory comes in handy
     echo "I'm creating a 3.5G swap, just a minute..."
     sudo touch /swapfile
-    sudo dd if=/dev/zero of=/swapfile bs=1024 count=3670016 status=progress
+    sudo fallocate -l 3,5G /swapfile
     sudo chmod 600 /swapfile
     sudo mkswap /swapfile
     sudo swapon /swapfile
